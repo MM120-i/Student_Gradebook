@@ -27,49 +27,50 @@ void percentage(float percent);
 void Display();
 
 int main() {
-    
+
     while (1) {
-        
-        system("cls");
-        error = 0;
-        title();
+
+        system("cls");  // Clear the console screen
+        error = 0;      // Initialize error variable
+        title();        // Display program title
         printf("\n\t\t\t\t\t\t     1. Create Gradebook\n");
         printf("\n\n\t\t\t\t\t\t     2. Exit\n");
         printf("\n\t\t\t\t\t\t\tChoose your option:  ");
-        scanf("%d", &option);
+        scanf("%d", &option);  // Read user's choice
 
         switch (option) {
-        case 1:
-            
-            do {
-                
-                studentDetails();
-                subjectDetails();
-                marksDetails();
-                calculation();
-                Display();
-                printf("\n\n\t\t\t\t\t\tDo you want to continue? (Y/N)  \n");
-                scanf(" %c", &repeat);
-                repeat = toupper(repeat);
 
-                if (repeat == 'N') exit(0);
+        case 1:
+
+            do {
+
+                studentDetails();   // Get student information
+                subjectDetails();   // Get subject information
+                marksDetails();     // Get marks details
+                calculation();      // Calculate grades
+                Display();          // Display the gradebook
+                printf("\n\n\t\t\t\t\t\tDo you want to continue? (Y/N)  \n");
+                scanf(" %c", &repeat);  // Ask if the user wants to continue
+                repeat = toupper(repeat); // Convert the input to uppercase
+
+                if (repeat == 'N') exit(0);  // Exit the program if 'N' is entered
 
             } while (repeat == 'Y');
 
-            studentDetails();
+            studentDetails();   // Get student information one more time
             break;
 
         case 2:
-            
-            exit(0);
+
+            exit(0);  // Exit the program
             break;
 
         default:
-            
+
             printf("\n\n\t\t\t\t\t\tError: Please select a valid option (1 or 2).\n");
             printf("\n\n\t\t\t\t\t\t");
-            system("pause");
-            system("cls");
+            system("pause");  // Pause the program to let the user see the error message
+            system("cls");    // Clear the console screen
         }
     }
 
@@ -77,192 +78,198 @@ int main() {
 }
 
 void marksDetails() {
-    
-    total = 0;
-    system("cls");
-    title();
+
+    total = 0;                 // Initialize the total marks
+    system("cls");             // Clear the console screen
+    title();                   // Display program title
     printf("\n\n\t\t\t\t\t\t-------------Details--------------\n");
     printf("\n\n\t\t\t\t\t\tEnter Marks : ");
 
-    for (i = 0; i < n; i++) {
-        
-        int temp = sj[i];
-        printf("\n\n\t\t\t\t\t\t%d. %s : ", i + 1, subjects[temp]);
-        scanf("%d", &marks[i]);
+    for (i = 0; i < n; i++) {  // Iterate through each subject
 
-        if (marks[i] < 50) {
-            
-            check = 1;
+        int temp = sj[i];      // Get the index of the subject from the subject array
+        printf("\n\n\t\t\t\t\t\t%d. %s : ", i + 1, subjects[temp]);  // Prompt for marks of a subject
+        scanf("%d", &marks[i]);  // Read marks from the user
+
+        if (marks[i] < 50) {     // Check if the marks are less than 50
+
+            check = 1;           // Set the 'check' variable to 1 to indicate low marks
         }
     }
 
-    printf("\n\n\t\t\t\t\t\t    Calculating.......");
-    sleep(2);
+    printf("\n\n\t\t\t\t\t\t    Calculating.......");  // Inform the user that calculations are in progress
+    sleep(2);  // Sleep for 2 seconds (assuming 'sleep' is defined elsewhere) for a brief pause
 }
+
 
 void calculation() {
+
+    total = 0;                    // Initialize the total marks to zero
+    for (i = 0; i < n; i++) {     // Iterate through each subject
     
-    total = 0;
-    for (i = 0; i < n; i++) {
-        
-        total += marks[i];
+        total += marks[i];        // Sum up the marks for all subjects
     }
 
-    int maxMarks = 100 * n;
-    percent = (total * 100.0) / maxMarks;
+    int maxMarks = 100 * n;       // Calculate the maximum possible marks for all subjects
+    percent = (total * 100.0) / maxMarks;  // Calculate the percentage obtained
 
-    if (percent < 50.0) {
-        
-        check = 1; // Failed
-    } else {
-        
-        check = 0; // Passed
+    if (percent < 50.0) {          // Check if the percentage is less than 50.0
+
+        check = 1;                // Set 'check' to 1, indicating that the student failed
+    } 
+    else {
+
+        check = 0;                // Set 'check' to 0, indicating that the student passed
     }
 }
 
+
 void Display() {
-    
-    system("cls");
-    title();
+
+    system("cls");                               // Clear the console screen
+    title();                                      // Display program title
     printf("\n\n\t\t\t\t\t\t------------- Results ------------\n");
-    printf("\n\t\t\t\t\t\tName : %s", name);
+    printf("\n\t\t\t\t\t\tName : %s", name);     // Display the student's name
     printf("\n\t\t\t\t\t\t=============================================");
     printf("\n\t\t\t\t\t\tSubjects\t\tMarks");
     printf("\n\t\t\t\t\t\t=============================================");
 
     for (i = 0; i < n; i++) {
-        
+
         int temp = sj[i];
-        printf("\n\t\t\t\t\t\t%-10s\t\t%d", subjects[temp], marks[i]);
+        printf("\n\t\t\t\t\t\t%-10s\t\t%d", subjects[temp], marks[i]);  // Display subject names and marks
 
         if (marks[i] < 35) {
-            
-            check = 1;
+
+            check = 1;                              // If any subject's marks are less than 35, set 'check' to 1
         }
     }
 
     printf("\n\t\t\t\t\t\t---------------------------------------------");
-    printf("\n\t\t\t\t\t\tTotal\t\t\t%d", total);
+    printf("\n\t\t\t\t\t\tTotal\t\t\t%d", total);      // Display the total marks
 
     printf("\n\t\t\t\t\t\tResult\t\t\t");
 
     if (check == 1) {
-        
-        printf("FAIL");
+
+        printf("FAIL");                             // Display "FAIL" if 'check' is 1 (indicating failure)
         check = 0;
     } 
     else {
-        
-        printf("PASS");
+
+        printf("PASS");                             // Display "PASS" if 'check' is 0 (indicating passing)
         check = 0;
     }
 
-    percentage(percent);
+    percentage(percent);                             // Call the 'percentage' function to display the percentage
     printf("  %0.0f%%", percent);
 
     if (percent >= 80) {
-        
-        printf("\n\t\t\t\t\t\tCongratulations %s, you scored %0.0f%%", name, percent);
+
+        printf("\n\t\t\t\t\t\tCongratulations %s, you scored %0.0f%%", name, percent);  // Display congratulations message for high scores
     } 
     else if (percent >= 60 && percent < 80) {
-        
-        printf("\n\t\t\t\t\t\tGood job %s, you scored %0.0f%%", name, percent);
+
+        printf("\n\t\t\t\t\t\tGood job %s, you scored %0.0f%%", name, percent);         // Display a message for scores between 60% and 79%
     } 
     else if (percent >= 50 && percent < 60) {
-        
-        printf("\n\t\t\t\t\t\t%s, you scored %0.0f%%", name, percent);
+
+        printf("\n\t\t\t\t\t\t%s, you scored %0.0f%%", name, percent);                   // Display a message for scores between 50% and 59%
     } 
     else if (percent < 50) {
-        
-        printf("\n\t\t\t\t\t\tDon't worry %s, try again next time.", name);
+
+        printf("\n\t\t\t\t\t\tDon't worry %s, try again next time.", name);               // Display a message for scores below 50%
         printf("\n\t\t\t\t\t\tYour score is %0.0f%%", percent);
-        total = 0;
+        total = 0;                                                                         // Reset the total marks
     }
 }
 
+
 void subjectDetails() {
-    
+
     do {
-        
-        error = 0;
-        system("cls");
-        title();
+
+        error = 0;                // Initialize the error variable
+        system("cls");            // Clear the console screen
+        title();                  // Display program title
         printf("\n\n\t\t\t\t\t\t-------------Enter Subject Details-----------\n");
         printf("\n\t\t\t\t\t\tEnter the number of subjects : ");
-        scanf("%d", &n);
+        scanf("%d", &n);          // Read the number of subjects from the user
         printf("\n\t\t\t\t\t\t----------------------------------------------");
         printf("\n\n\t\t\t\t\t\tSubjects: ");
         printf("\n\t\t\t\t\t\t");
 
-        for (i = 0; i <= LENGTH - 1; i++) {
-            
+        for (i = 0; i <= LENGTH - 1; i++) {  // Display a list of available subjects
+        
             printf("%2d. %-6s", i, subjects[i]);
             if (i == 5 || i == 9 || i == LENGTH - 1) {
-                
+
                 printf("\n\t\t\t\t\t\t");
             }
         }
         printf("\n\t\t\t\t\t\t----------------------------------------------");
         printf("\n\n\t\t\t\t\t\tChoose Subjects: ");
 
-        for (i = 0; i < n; i++) {
-            
+        for (i = 0; i < n; i++) {  // Read the selected subjects from the user
+
             scanf("%d", &sj[i]);
 
-            if (sj[i] >= LENGTH) {
-                
+            if (sj[i] >= LENGTH) {  // Check if the selected subject index is valid
+
                 printf("\n\t\t\t\t\t\tError : %dth subject does not exist\n", sj[i]);
-                error = 1;
+                error = 1;  // Set the error flag to 1
                 break;
             }
 
-            for (j = 0; j < i; j++) {
-                
+            for (j = 0; j < i; j++) {  // Check if the same subject is selected multiple times
+
                 if (sj[i] == sj[j]) {
-                    
+
                     printf("\n\t\t\t\t\t\tError: You picked the same subject multiple times.\n");
-                    error = 1;
+                    error = 1;  // Set the error flag to 1
                     break;
                 }
             }
         }
 
         printf("\n\t\t\t\t\t\t");
-        system("pause");
+        system("pause");  // Pause the program to let the user see any error messages
 
-        if (error == 0) {
+        if (error == 0) {  // If there are no errors, exit the loop
+
             break;
         }
 
-    } while (error == 1);
+    } while (error == 1);  // Repeat the process if there are errors
 }
 
 void title() {
-    
+
     printf("\n\t\t\t\t\t\t=============================================");
     printf("\n\t\t\t\t\t\t         STUDENT GRADEBOOK PROGRAM");
     printf("\n\t\t\t\t\t\t=============================================");
 }
 
 void percentage(float percent) {
-    
-    printf("\n\n\t\t\t\t\t\t");
 
-    for (int k = 0; k < percent; k++) {
-        
-        if ((k % 2) == 0) {
-            
-            printf("#");
-            usleep(19000);
+    printf("\n\n\t\t\t\t\t\t");  // Display a new line and indentation
+
+    for (int k = 0; k < percent; k++) {  // Loop through each percentage point
+
+        if ((k % 2) == 0) {  // Check if the current percentage is even
+
+            printf("#");     // Display a '#' character to visualize progress
+            usleep(19000);   // Pause for a short duration to slow down the visualization
         }
     }
 }
 
 void studentDetails() {
-    
-    system("cls");
-    title();
+
+    system("cls");                     // Clear the console screen
+    title();                           // Display program title
     printf("\n\n\t\t\t\t\t\t-------------Enter Student Details-----------\n");
     printf("\n\t\t\t\t\t\tName : ");
-    scanf("%s", name);
+    scanf("%s", name);                 // Read and store the student's name
 }
+
