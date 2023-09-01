@@ -35,6 +35,8 @@ This project is a Gradebook application designed for Canadian Grade 12 high scho
 
 **Screenshots:**
 
+
+
 ![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/07709ea5-f60a-48d8-9069-9831f3060782)
 ![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/0eda660b-6240-49b1-9f8a-61614e5b76b6)
 ![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/98b8465a-338f-4ddb-8210-909f358956da)
