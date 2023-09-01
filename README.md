@@ -36,10 +36,11 @@ This project is a Gradebook application designed for Canadian Grade 12 high scho
 **Screenshots:**
 
 
+![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/f1b3f561-7d5c-4816-983a-33a189e56a86)
+![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/b807746f-63b3-4280-867a-ef64bbb77022)
+![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/708de85f-cbf1-4b2d-8260-98ea4001750f)
 
-![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/07709ea5-f60a-48d8-9069-9831f3060782)
-![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/0eda660b-6240-49b1-9f8a-61614e5b76b6)
-![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/98b8465a-338f-4ddb-8210-909f358956da)
+
 
 
 This Gradebook project is ideal for high school students in Grade 12 in Canada who want to track their academic progress and receive feedback on their performance in various subjects. It is a valuable tool for self-assessment and improvement in their final year of high school.
