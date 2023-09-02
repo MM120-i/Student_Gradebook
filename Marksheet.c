@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <time.h>
 
 int i, j, option, error, check = 0;
 char name[50], repeat;
@@ -112,15 +113,6 @@ void calculation() {
 
     int maxMarks = 100 * n;       // Calculate the maximum possible marks for all subjects
     percent = (total * 100.0) / maxMarks;  // Calculate the percentage obtained
-
-    if (percent < 50.0) {          // Check if the percentage is less than 50.0
-
-        check = 1;                // Set 'check' to 1, indicating that the student failed
-    } 
-    else {
-
-        check = 0;                // Set 'check' to 0, indicating that the student passed
-    }
 }
 
 
@@ -150,37 +142,35 @@ void Display() {
 
     printf("\n\t\t\t\t\t\tResult\t\t\t");
 
-    if (check == 1) {
+    if (percent < 50.0) {
 
-        printf("FAIL");                             // Display "FAIL" if 'check' is 1 (indicating failure)
-        check = 0;
+        printf("FAIL");  // Display "FAIL" if the percentage is less than 50.0
     } 
     else {
 
-        printf("PASS");                             // Display "PASS" if 'check' is 0 (indicating passing)
-        check = 0;
+        printf("PASS");  // Display "PASS" if the percentage is greater than or equal to 50.0
     }
 
-    percentage(percent);                             // Call the 'percentage' function to display the percentage
+    percentage(percent);
     printf("  %0.0f%%", percent);
 
     if (percent >= 80) {
 
-        printf("\n\t\t\t\t\t\tCongratulations %s, you scored %0.0f%%", name, percent);  // Display congratulations message for high scores
+        printf("\n\t\t\t\t\t\tCongratulations %s, you scored %0.0f%%", name, percent);
     } 
     else if (percent >= 60 && percent < 80) {
 
-        printf("\n\t\t\t\t\t\tGood job %s, you scored %0.0f%%", name, percent);         // Display a message for scores between 60% and 79%
+        printf("\n\t\t\t\t\t\tGood job %s, you scored %0.0f%%", name, percent);
     } 
     else if (percent >= 50 && percent < 60) {
 
-        printf("\n\t\t\t\t\t\t%s, you scored %0.0f%%", name, percent);                   // Display a message for scores between 50% and 59%
-    } 
+        printf("\n\t\t\t\t\t\t%s, you scored %0.0f%%", name, percent);
+    }
     else if (percent < 50) {
 
-        printf("\n\t\t\t\t\t\tDon't worry %s, try again next time.", name);               // Display a message for scores below 50%
+        printf("\n\t\t\t\t\t\tDon't worry %s, try again next time.", name);
         printf("\n\t\t\t\t\t\tYour score is %0.0f%%", percent);
-        total = 0;                                                                         // Reset the total marks
+        total = 0;
     }
 }
 
@@ -254,12 +244,17 @@ void percentage(float percent) {
 
     printf("\n\n\t\t\t\t\t\t");  // Display a new line and indentation
 
+    // Convert the sleep time from milliseconds to a timespec structure
+    struct timespec delay;
+    delay.tv_sec = 0;
+    delay.tv_nsec = 19000000; // 19,000,000 nanoseconds (equivalent to 19 milliseconds)
+
     for (int k = 0; k < percent; k++) {  // Loop through each percentage point
 
         if ((k % 2) == 0) {  // Check if the current percentage is even
 
             printf("#");     // Display a '#' character to visualize progress
-            usleep(19000);   // Pause for a short duration to slow down the visualization
+            nanosleep(&delay, NULL); // Use nanosleep to pause for the specified duration
         }
     }
 }
