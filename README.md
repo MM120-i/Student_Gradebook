@@ -44,3 +44,11 @@ This project is a Gradebook application designed for Canadian Grade 12 high scho
 
 
 This Gradebook project is ideal for high school students in Grade 12 in Canada who want to track their academic progress and receive feedback on their performance in various subjects. It is a valuable tool for self-assessment and improvement in their final year of high school.
+
+**Changelog / Updates:**
+
+**August 15, 2023:**
+  - Fixed a warning that occurred during compilation.
+  - Resolved an issue where the application would incorrectly output 'FAIL' even if the final average is over 50%.
+  - Improved code readability by adding more comments for readers.
+
