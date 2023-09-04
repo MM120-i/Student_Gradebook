@@ -1,8 +1,6 @@
 #include <stdio.h>
-#include <unistd.h>
 #include <ctype.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <time.h>
 
 int i, j, option, error, check = 0;
