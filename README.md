@@ -55,3 +55,5 @@ This Gradebook project is ideal for high school students in Grade 12 in Canada w
   - Resolved an issue where the application would incorrectly output 'FAIL' even if the final average is over 50%.
   - Improved code readability by adding more comments for readers.
 
+**September 03, 2023:**
+  - Removed redundant '#include' statement.
