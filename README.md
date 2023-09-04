@@ -56,4 +56,4 @@ This Gradebook project is ideal for high school students in Grade 12 in Canada w
   - Improved code readability by adding more comments for readers.
 
 **September 03, 2023:**
-  - Removed redundant '#include' statement.
+  - Removed redundant '#include' statements.
