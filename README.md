@@ -35,7 +35,9 @@ This project is a Gradebook application designed for Canadian Grade 12 high scho
 
 **Screenshots:**
 
-![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/f1b3f561-7d5c-4816-983a-33a189e56a86)
+![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/da5d5ef2-42fa-4cbd-bc03-1f3038a9f13c)
+
+![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/d1510c13-1faf-4ada-b5c0-c43e1ea8cf13)
 
 ![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/708de85f-cbf1-4b2d-8260-98ea4001750f)
 
@@ -57,3 +59,11 @@ This Gradebook project is ideal for high school students in Grade 12 in Canada w
 
 **September 03, 2023:**
   - Removed redundant '#include' statements.
+
+**September 05, 2023:**
+
+*New Feature*: 
+ - Course Details Viewing: Users can now access and view detailed information about available courses, including the course description and prerequisites/corequisites.
+
+*Bug Fix*:
+- Compilation Warning Fix: Resolved a compilation warning that occurred due to the use of the sleep function without a proper declaration.
