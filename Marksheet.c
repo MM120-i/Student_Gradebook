@@ -2,6 +2,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 
 int i, j, option, error, check = 0;
 char name[50], repeat;
