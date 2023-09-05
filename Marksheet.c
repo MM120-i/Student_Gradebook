@@ -10,10 +10,113 @@ float percent;
 
 // More courses can be added
 const char *subjects[15] = {
-    "ENG4U", "MHF4U", "MDM4U", "MCV4U", "TEJ4M",   
+    "ENG4U", "MHF4U", "MDM4U", "MCV4U", "TGJ4M",   
     "SCH4U", "SPH4U", "SBI4U", "HSB4U", "BAT4M", 
     "BBB4M", "BOH4M", "FSF4U", "ICS4U", "MAP4C"
 }; // Course codes
+
+struct Course{
+
+    const char *code;
+    const char *description;
+    const char *type;
+    const char *prerequisite;
+};
+
+//More courses can be added.
+struct Course courses[15] = { 
+
+    {
+        "ENG4U : Grade 12 English", 
+        "This course emphasizes the consolidation of literacy, communication, and critical and creative thinking skills necessary for success in academic and daily life.", 
+        "University Preparation", 
+        "Prerequisite: ENG3U, Grade 11 English or NBE3U"
+    },
+    {
+        "MHF4U : Grade 12 Advanced Functions",
+        "MHF4U extends students’ experience with functions. Students will investigate the properties of polynomial, rational, logarithmic, and trigonometric functions.",
+        "University Preparation",
+        "Prerequisite: MCR3U, Grade 11 Functions or MCT4C, Grade 12 Mathematics for College Technology"
+    },
+    {
+        "MDM4U: Grade 12 Mathematics of Data Management",
+        "This course broadens students’ understanding of mathematics as it relates to managing data. Students will apply methods for organizing and analysing large amounts of information.",
+        "University Preparation",
+        "Prerequisite: MCR3U, Grade 11 Functions or MCF3M, Grade 11 Functions and Applications"
+    },
+    {
+        "MCV4U : Grade 12 Calculus and Vectors",
+        "This course builds on students’ previous experience with functions and their developing understanding of rates of change. Students will solve problems involving geometric and algebraic representations of vectors and representations of lines and planes in three dimensional space.",
+        "University Preparationrsity",
+        "Prerequisite: Proof of completion or enrollment is MHF4U. Co-requisite: MHF4U, Grade 12 Advanced Functions"
+    },
+    {
+        "TGJ4M : Grade 12 Communications Technology",
+        "This course enables students to further develop media knowledge and skills while designing and producing projects in the areas of live, recorded, and graphic communications.",
+        "University/College Preparation",
+        "Prerequisite: TGJ3M, Grade 11 Communications Technology"
+    },
+    {
+        "SCH4U : Grade 12 Chemistry",
+        "This course allows students to deepen their understanding of chemistry through the study of organic chemistry, energy changes and rates of reaction, chemical systems and equilibrium, electrochemistry, and atomic and molecular structure.",
+        "University Preparation",
+        "Prerequisite: SCH3U, Grade 11 Chemistry",
+    },
+    {
+        "SPH4U : Grade 12 Physics",
+        "This course enables students to deepen their understanding of physics concepts and theories.",
+        "University Preparation",
+        "Prerequisite: SPH3U, Grade 11 Physics"
+    },
+    {
+        "SBI4U : Grade 12 Biology",
+        "This course provides students with the opportunity for in-depth study of the concepts and processes associated with biological systems.",
+        "University Preparation",
+        "Prerequisite: SBI3U, Grade 11 Biology"
+    },
+    {   
+        "HSB4U : Grade 12 Challenge and Change in Society",
+        "This course focuses on the use of social science theories, perspectives, and methodologies to investigate and explain shifts in knowledge, attitudes, beliefs, and behaviour and their impact on society.",
+        "University Preparation",
+        "Prerequisite: Any Grade 11 or 12 university (U) or university/college (M) preparation course in Social Sciences and Humanities, English, or Canadian and World Studies."
+    },
+    {
+        "BAT4M : Grade 12 Financial Accounting Principles",
+        "This course introduces students to advanced accounting principles that will prepare them for post-secondary studies in business.",
+        "University/College Preparation",
+        "Prerequisite: BAF3M, Grade 11 Financial Accounting Fundamentals"
+    },
+    {
+        "BBB4M : Grade 12 International Business Fundamentals",
+        "This course provides an overview of the importance of international business and trade in the global economy and explores the factors that influence success in international markets.",
+        "University/College Preparation",
+        "Prerequisite: None"
+    },
+    {
+        "BOH4M : Grade 12 Business Leadership",
+        "This course focuses on developing the leadership skills used in managing a successful business.",
+        "University/College Preparation",
+        "Prerequisite: None"
+    },
+    {
+        "FSF4U : Grade 12 Core French",
+        "This course provides extensive opportunities for students to speak and interact in French independently. Students will develop their listening, speaking, reading, and writing skills.",
+        "University Preparation",
+        "Prerequisite: FSF3U, Grade 11 Core French"
+    },
+    {
+        "ICS4U : Grade 12 Computer Science",
+        "This course enables students to further develop knowledge and skills in computer science. Students will use modular design principles to create complex and fully documented programs, according to industry standards.",
+        "University Preparation",
+        "Prerequisite: ICS3U, Grade 11 Computer Science"
+    },
+    {
+        "MAP4C : Grade 12 Foundations for College Mathematics",
+        "This course focuses on real-world applications of mathematics. It seeks to prepare students for college programs in areas such as business, health sciences, and human services, and for certain skilled trades.",
+        "College Preparation",
+        "Prerequisite: MBF3C, Grade 11 Foundations for College Mathematics or MCF3M, Grade 11 Functions and Applications,MCR3U, Grade 11 Functions"
+    }
+};
 
 #define LENGTH sizeof(subjects) / sizeof(subjects[0])
 
@@ -24,6 +127,7 @@ void marksDetails();
 void calculation();
 void percentage(float percent);
 void Display();
+void courseDetails();
 
 int main() {
 
@@ -33,7 +137,8 @@ int main() {
         error = 0;      // Initialize error variable
         title();        // Display program title
         printf("\n\t\t\t\t\t\t     1. Create Gradebook\n");
-        printf("\n\n\t\t\t\t\t\t     2. Exit\n");
+        printf("\n\n\t\t\t\t\t\t     2. Course Details\n");
+        printf("\n\n\t\t\t\t\t\t     3. Exit\n");
         printf("\n\t\t\t\t\t\t\tChoose your option:  ");
         scanf("%d", &option);  // Read user's choice
 
@@ -54,12 +159,25 @@ int main() {
 
                 if (repeat == 'N') exit(0);  // Exit the program if 'N' is entered
 
-            } while (repeat == 'Y');
+            } while (repeat != 'Y');
 
             studentDetails();   // Get student information one more time
             break;
 
         case 2:
+
+            do{
+
+                courseDetails();
+                printf("\n\n\t\t\t\t\t\tDo you want to exit this page? (Y)  \n");
+                scanf(" %c", &repeat);
+                repeat = toupper(repeat);
+                
+            } while (repeat != 'Y');
+            
+            break;
+
+        case 3:
 
             exit(0);  // Exit the program
             break;
@@ -74,6 +192,23 @@ int main() {
     }
 
     return 0;
+}
+
+void courseDetails(){
+
+    // Calculate the number of courses in the 'courses' array
+    int length = sizeof(courses) / sizeof(courses[0]);
+
+    // Loop through each course and display its details
+    for(int i = 0; i < length; i++){
+
+        // Display the course code and description
+        printf("\n\n%s: %s", courses[i].code, courses[i].description);
+        // Display the course type
+        printf("\nCourses Type: %s", courses[i].type);
+        // Display the course prerequisite
+        printf("\n%s\n", courses[i].prerequisite);
+    }
 }
 
 void marksDetails() {
@@ -265,4 +400,3 @@ void studentDetails() {
     printf("\n\t\t\t\t\t\tName : ");
     scanf("%s", name);                 // Read and store the student's name
 }
-
