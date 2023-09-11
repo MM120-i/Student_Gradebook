@@ -1,22 +1,34 @@
 # Student Gradebook
 
-**Project Description/Summary: Canadian Grade 12 High School Gradebook**
+**Project Description: Canadian Grade 12 High School Gradebook**
 
-This project is a Gradebook application designed for Canadian Grade 12 high school students. It allows students to input their personal details, select their courses from a predefined list of 12th-grade courses, enter their marks, and receive an assessment of their performance, including a final percentage and grade. The project is intended to help students track their academic progress in various subjects and provide valuable feedback on their performance.
+The Student Management System is designed to assist Canadian high school guidance counselors and teachers in managing grade 12 students' academic records. It provides a user-friendly interface to input and track student information, course details, and grades. The system is primarily intended for use by grade 12 students and can be used by teachers to manage their students' academic progress.
 
 **Key Features:**
 
-1. **User-Friendly Interface**: The application provides a simple and user-friendly interface, making it easy for students to input their information and access their results.
+1) Student Information Management: The system allows counselors and teachers to input and manage student details, including their names.
 
-2. **Course Selection**: Students can select their courses from a list of 12th-grade subjects, such as English, Mathematics, Science, and Business, by entering the corresponding course code.
+2) Course Details: It provides comprehensive information about various grade 12 courses, including course codes, descriptions, types (e.g., University Preparation, College Preparation), and prerequisites.
 
-3. **Mark Entry**: Students can enter their marks for each selected course, and the system calculates the total marks and percentage.
+3) Grade Entry: Users can enter student grades for multiple subjects relevant to their grade 12 curriculum.
 
-4. **Performance Assessment**: The application provides an assessment of the student's performance, indicating whether they have passed or failed each course. It also calculates an overall percentage.
+4) Grade Calculation: The system calculates the total marks obtained by the student and their overall percentage based on the entered grades.
 
-5. **Feedback and Grades**: Students receive feedback and grades based on their overall percentage, with different messages and grades for various performance levels.
+5) Grade Classification: It classifies students' performance as Pass or Fail and provides a visual progress indicator during percentage calculation.
 
-6. **Continuity**: The application allows students to continue entering grades for additional courses or exit the program when they are finished.
+6) Gradebook Creation: Users can create a gradebook to keep track of individual student records.
+
+7) View and Delete Student Records: The system allows users to view student records and delete them if necessary.
+
+Usage:
+
+1) Create Gradebook: Users can create a new gradebook, enter student details, select subjects, input grades, and calculate the student's overall percentage.
+
+2) Course Details: Provides comprehensive information about available grade 12 courses, helping students and teachers choose appropriate courses.
+
+3) View Student Records: Counselors and teachers can access and review student records, making it easier to monitor academic progress.
+
+4) Delete Student Records: Users can delete specific student records when necessary.
 
 **Technologies Used:**
 
@@ -35,7 +47,7 @@ This project is a Gradebook application designed for Canadian Grade 12 high scho
 
 **Screenshots:**
 
-![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/da5d5ef2-42fa-4cbd-bc03-1f3038a9f13c)
+![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/7c7fdd15-07f3-44af-a067-44f1a5975c87)
 
 ![image](https://github.com/MM120-i/Student_Gradebook/assets/80307451/d1510c13-1faf-4ada-b5c0-c43e1ea8cf13)
 
@@ -46,7 +58,7 @@ This project is a Gradebook application designed for Canadian Grade 12 high scho
 
 
 
-This Gradebook project is ideal for high school students in Grade 12 in Canada who want to track their academic progress and receive feedback on their performance in various subjects. It is a valuable tool for self-assessment and improvement in their final year of high school.
+Note: Ensure that the necessary dependencies and system requirements are met before running the provided source code. This project simplifies the process of tracking grade 12 student records, making it a valuable tool for guidance counselors and teachers in Canadian high schools.
 
 
 
@@ -67,3 +79,11 @@ This Gradebook project is ideal for high school students in Grade 12 in Canada w
 
 *Bug Fix*:
 - Compilation Warning Fix: Resolved a compilation warning that occurred due to the use of the sleep function without a proper declaration.
+
+**September 10, 2023**:
+
+*New Feature*:
+- Search Student Records: Added the ability to search for student records by name.
+- Data Security: Implemented secure storage of student data in a file.
+- View Gradebook: Enabled users to easily view the contents of the gradebook.
+- Delete Student Records: Added functionality to delete student records.
