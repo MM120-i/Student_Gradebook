@@ -4,6 +4,7 @@
 #include <time.h>
 #include <string.h>
 #include <unistd.h>
+#include "Marksheet.h"
 
 int i, j, option, error, check = 0;
 char name[50], repeat;
